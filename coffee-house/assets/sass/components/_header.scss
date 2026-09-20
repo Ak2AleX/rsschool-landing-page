@@ -71,6 +71,45 @@
     }
 }
 
+.theme__switch {
+    height: 44px;
+    width: 88px;
+    display: flex;
+    margin-right: 24px;
+    margin-left: 45px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid $color-border-light;
+    border-radius: 100px;
+    color: $color-text-dark;
+    @extend %transition;
+    cursor: pointer;
+    @media (hover: hover) {
+        &:hover {
+            .theme__icon_dark {
+                background-color: $color-border-dark;
+            }
+        }
+    }
+}
+
+.theme__icon {
+    @extend %transition;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    &_light {
+        background-color: $color-text-accent;
+        border-radius: 100px;
+    }
+    &_dark {
+        border-radius: 100px;
+    }
+}
+
 .menu__logo {
     display: flex;
     align-items: center;

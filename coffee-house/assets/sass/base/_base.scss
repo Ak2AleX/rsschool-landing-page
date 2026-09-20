@@ -18,6 +18,8 @@ h1 {
 
 h2 {
     @include font ($size: 6rem, $height: 7.5rem);
+    // line-height: 1.25rem;
+    // letter-spacing: 0rem;
     color: $color-text-dark;
     margin: 100px 0 40px;
     @include media-mobile {
@@ -27,7 +29,7 @@ h2 {
 
 .h2_colored {
     color: $color-text-accent;
-    font-style: italic
+    font-style: italic;
 }
 
 body {
