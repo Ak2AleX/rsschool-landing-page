@@ -25,6 +25,7 @@
         position: absolute;
         top: 100px;
         right: 0;
+        padding-bottom: 1000px;
     }
 }
 
@@ -84,6 +85,7 @@
     }
     &_active {
         border-bottom: 2px solid $color-text-dark;
+        cursor: default;
     }
     @include media-burger {
         background-color: $color-background-body;

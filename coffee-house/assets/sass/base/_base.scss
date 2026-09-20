@@ -1,6 +1,7 @@
 html {
     font-size: 10px;
     background-color: $color-background-body;
+    scrollbar-gutter: stable; 
 }
 
 h1 {
@@ -33,6 +34,9 @@ body {
     @extend %font-primary;
     @include font ($size: 1.6rem, $height: 2.4rem, $weight: 600);
     background-color: $color-background-body;
+    &.active {
+        overflow: hidden;
+    }
 }
 
 .body__wrapper {

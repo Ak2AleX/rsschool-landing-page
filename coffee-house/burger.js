@@ -2,12 +2,14 @@ const active = () => {
     menuButton.classList.toggle('active');
     menu.classList.toggle ('active');
     menuButtonExit.classList.toggle ('active');
+    body.classList.toggle ('active');
 }
 
 let menuButton = document.querySelector('.burger');
 let menu = document.querySelector ('.header__navigation');
 let menuButtonExit = document.querySelector ('.burger__exit');
 let menuLinks = document.querySelectorAll ('.navigation__link');
+let body = document.querySelector ('body');
 
 {menuButton.addEventListener("click", function(e) {
     e.stopPropagation();
