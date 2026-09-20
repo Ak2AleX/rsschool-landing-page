@@ -313,8 +313,10 @@ body {
   line-height: 2.4rem;
   background-color: var(--color-background-body);
 }
-body.active {
-  overflow: hidden;
+@media (max-width: 768px) {
+  body.active {
+    overflow: hidden;
+  }
 }
 
 .body__wrapper {

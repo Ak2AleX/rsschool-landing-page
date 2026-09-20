@@ -37,8 +37,10 @@ body {
     @extend %font-primary;
     @include font ($size: 1.6rem, $height: 2.4rem, $weight: 600);
     background-color: $color-background-body;
-    &.active {
-        overflow: hidden;
+    @include media-burger {
+        &.active {
+            overflow: hidden;
+        }
     }
 }
 
