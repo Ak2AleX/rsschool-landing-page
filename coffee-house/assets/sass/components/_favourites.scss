@@ -31,12 +31,19 @@
         &:hover {
             background-color: $color-border-dark;
             & svg path {
-                stroke: $color-background-body;
+                stroke: $color-text-light;
             }
         }
     }
     @include media-mobile {
         display: none;
+    }
+}
+
+.arrows {
+    & > path {
+        stroke: $color-text-dark;
+        @extend %transition;
     }
 }
 

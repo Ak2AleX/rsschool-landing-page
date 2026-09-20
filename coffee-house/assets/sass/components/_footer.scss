@@ -37,7 +37,7 @@
 .footer__ico__borber {
     margin-right: 12px;
     cursor: pointer;
-    color: $color-border-dark;
+    // color: $color-border-dark;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,12 +48,17 @@
     @extend %transition;
     @media (hover: hover) {
         &:hover {
-            background-color: $color-border-light;
+            border: 1px solid $color-border-dark;
+            background-color: $color-background-body;
             & svg path {
-                stroke: $color-border-dark;
+                stroke: $color-text-dark;
             }
         }
     }
+}
+
+.footer__ico__borber svg > path {
+    @extend %transition;
 }
 
 .contact__us__item {
@@ -94,7 +99,7 @@
     border-bottom: 2px solid $color-background-container;
     @media (hover: hover) {
         &:hover {
-            border-bottom: 2px solid $color-border-light;
+            border-bottom: 2px solid #E1D4C9;
         }
     }
     &_phone {

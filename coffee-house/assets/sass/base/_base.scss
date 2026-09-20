@@ -10,6 +10,7 @@ h1 {
     line-height: 7.56rem;
     font-size: clamp(4.2rem, 15cqi - 15px, 7.2rem);
     line-height: clamp(4.83rem, 15cqi - 15px, 7.56rem);
+    letter-spacing: 0.2rem;
 }
 
 :hover {
@@ -17,9 +18,9 @@ h1 {
 }
 
 h2 {
-    @include font ($size: 6rem, $height: 7.5rem);
-    // line-height: 1.25rem;
-    // letter-spacing: 0rem;
+    @include font ($size: 6rem, $height: 7.5rem, $weight: 600);
+    line-height: 125%;
+    letter-spacing: 0.2rem;
     color: $color-text-dark;
     margin: 100px 0 40px;
     @include media-mobile {

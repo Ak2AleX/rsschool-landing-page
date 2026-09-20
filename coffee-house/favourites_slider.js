@@ -71,12 +71,12 @@ function arrowRightClick () {
 }
 
 function autoslide () {
-    timer = setTimeout(arrowRightClick, 5000);
+    timer = setTimeout(arrowRightClick, 7000);
     loop();
 }
 
 function loop () {
-    setTimeout(autoslide, 5000);
+    setTimeout(autoslide, 7000);
 }
 
 arrowRight.addEventListener("click", arrowRightClick);

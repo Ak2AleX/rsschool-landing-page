@@ -1,9 +1,10 @@
 .mobile__app__content {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     @include media-tablet {
         flex-direction: column;
+        flex-wrap: wrap;
     }
 }
 
@@ -29,7 +30,13 @@
 .mobile__app__buttons {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    @include media-tablet {
+        flex-wrap: nowrap;
+    }
     @include media-mobile {
+        row-gap: 0;
         flex-direction: column;
     }
 }
@@ -46,16 +53,22 @@
     border: 1px solid $color-border-dark;
     @extend %transition;
     cursor: pointer;
+    & svg path {
+        fill: $color-text-dark;
+    }
     @media (hover: hover) {
         &:hover {
             background-color: $color-border-dark;
             .mobile__button__text {
-                color: $color-background-body;
+                color: $color-text-light;
             }
             & svg path {
-                fill: $color-background-body;
+                fill: $color-text-light;
             }
         }
+    }
+    & svg > path {
+        @extend %transition;
     }
     @include media-mobile {
         margin-bottom: 20px;

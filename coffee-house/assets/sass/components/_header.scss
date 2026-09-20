@@ -82,13 +82,41 @@
     gap: 8px;
     border: 1px solid $color-border-light;
     border-radius: 100px;
-    color: $color-text-dark;
     @extend %transition;
     cursor: pointer;
+    .theme__icon_dark {
+        & svg path {
+            @extend %transition;
+        }
+    }
     @media (hover: hover) {
         &:hover {
             .theme__icon_dark {
                 background-color: $color-border-dark;
+                &.active {
+                    & svg path {
+                        stroke: $color-border-light;
+                    }
+                }
+            }
+        }
+    }
+    [data-theme="dark"] & {
+        border-color: $color-border-dark;
+        .theme__icon_dark {
+            background-color: $color-text-accent;
+        }
+        .theme__icon_light {
+            background-color: $color-background-body;
+        }
+        @media (hover: hover) {
+            &:hover {
+                .theme__icon_dark {
+                    background-color: $color-text-accent;
+                }
+                .theme__icon_light {
+                    background-color: $color-background-container;
+                }
             }
         }
     }
