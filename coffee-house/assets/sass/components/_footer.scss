@@ -1,0 +1,103 @@
+.footer {
+    padding-bottom: 40px;
+}
+
+.footer__container {
+    display: flex;
+    border-radius: 40px;
+    background-color: $color-background-container;
+    padding: 100px;
+    @include media-tablet {
+        flex-direction: column;
+        padding: 100px 60px 85px 60px;
+    }
+    @include media-mobile {
+        padding: 60px 16px 45px 16px;
+    }
+}
+
+.media {
+    margin-right: 100px;
+    width: 530px;
+    @include media-mobile {
+        width: 320px;
+    }
+}
+
+.media__icons {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer__h2 {
+    color: $color-text-light;
+    margin: 0 0 40px 0;
+}
+
+.footer__ico__borber {
+    margin-right: 12px;
+    cursor: pointer;
+    color: $color-border-dark;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    border: 1px solid $color-border-light;
+    @extend %transition;
+    @media (hover: hover) {
+        &:hover {
+            background-color: $color-border-light;
+            & svg path {
+                stroke: $color-border-dark;
+            }
+        }
+    }
+}
+
+.contact__us__item {
+    display: flex;
+    margin-bottom: 16px;
+    height: 28px;
+    align-items: center;
+}
+
+.contact__us__ico {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.contact__us__text {
+    white-space: nowrap;
+    color: $color-text-light;
+    margin: 0;
+    @include font ($size: 1.6rem, $height: 2.4rem, $weight: 600);
+    text-decoration: none;
+    &_big {
+        margin: 32px 0 38px 0;
+        @include font ($size: 2.4rem, $height: 3rem, $weight: 600);
+        @include media-tablet {
+            margin-top: 100px;
+        }
+        @include media-mobile {
+            margin: 40px 0 38px 0;
+        }
+    }
+}
+
+.footer__link {
+    cursor: pointer;
+    width: 184px;
+    @extend %transition;
+    border-bottom: 2px solid $color-background-container;
+    @media (hover: hover) {
+        &:hover {
+            border-bottom: 2px solid $color-border-light;
+        }
+    }
+    &_phone {
+        width: 176px;
+    }
+}
