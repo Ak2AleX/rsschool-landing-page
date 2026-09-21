@@ -68,7 +68,7 @@
         &:hover {
             padding-left: 68px;
             .enjoy__button__cup {
-                padding-left: 10px;
+                margin-left: 10px;
                 opacity: 1;
             }
         }
@@ -86,4 +86,9 @@
     @extend %transition;
     opacity: 0;
     display: flex;
+    min-width: 20px;
+    min-height: 20px;
+    & path {
+        stroke: $color-text-dark;
+    }
 }

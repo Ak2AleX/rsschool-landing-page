@@ -8,14 +8,27 @@
 .logo {
     display: flex;
     margin: 20px 0;
+    &-dark {
+        fill: $color-text-dark;
+    }
+}
+
+.logo {
+    & path {
+        @extend %transition;
+    }
 }
 
 .header__navigation {
     display: flex;
+    // margin-right: clamp(40px, 1vw, 100px);
+    // margin-left: 0;
     align-items: center;
     flex-grow: 1;
     transition: all ease-in-out .5s;
     @include media-burger {
+        margin-right: 0;
+        margin-left: 0; 
         transform: translateX(100%);
         flex-direction: column;
         width: 100%;
@@ -37,11 +50,15 @@
 
 .navigation {
     flex-grow: 1;
+    // margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     list-style: none;
-    gap: 40px;
+    // gap: 40px;
+    gap: clamp(20px, 2.5vw, 40px);
+    // margin-right: clamp(332px, 1vw, 1px);
+    // margin-right: calc(auto + 420px);
     padding: 0;
     @include media-burger {
         flex-grow: 0;
@@ -53,6 +70,15 @@
         margin-bottom: 100px;
         margin-top: 60px;
         gap: 60px;
+    }
+}
+
+.header__spacer {
+    flex-grow: 1; 
+    max-width: 40px; 
+    min-width: 20px;
+    @include media-burger {
+        display: none;
     }
 }
 
@@ -75,8 +101,10 @@
     height: 44px;
     width: 88px;
     display: flex;
-    margin-right: 24px;
-    margin-left: 45px;
+    margin-right: clamp(15px, 2vw, 25px);
+    flex-shrink: 0;
+    // margin-right: 24px;
+    // margin-left: 45px;
     align-items: center;
     justify-content: center;
     gap: 8px;
@@ -84,11 +112,6 @@
     border-radius: 100px;
     @extend %transition;
     cursor: pointer;
-    .theme__icon_dark {
-        & svg path {
-            @extend %transition;
-        }
-    }
     @media (hover: hover) {
         &:hover {
             .theme__icon_dark {
@@ -177,5 +200,8 @@
         margin-left: -3px;
        width: 40px;
        height: 40px;
+    }
+    & path {
+        stroke: $color-text-dark;
     }
 }

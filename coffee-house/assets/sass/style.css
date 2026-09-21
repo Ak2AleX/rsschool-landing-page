@@ -259,7 +259,7 @@ input[type=checkbox], input[type=radio] {
   --color-border-dark: #403F3D;
 }
 
-.refresh, .menu__image, .tab__icon, .tab, .footer__link, .footer__ico__borber svg > path, .footer__ico__borber, .mobile__button svg > path, .mobile__button, .about__image, .arrows > path, .arrow__border, .enjoy__button__cup, .enjoy__button, .menu__logo, .theme__icon, .theme__switch .theme__icon_dark svg path, .theme__switch, .navigation__link, .burger__exit, .burger, :hover {
+.refresh, .menu__image, .tab__icon, .tab, .footer__link, .footer__ico__borber svg > path, .footer__ico__borber, .mobile__button svg > path, .mobile__button, .about__image, .arrows > path, .arrow__border, .enjoy__button__cup, .enjoy__button, .menu__logo, .theme__icon, .theme__switch, .navigation__link, .logo path, .burger__exit, .burger, :hover {
   transition: all 0.3s ease-out;
 }
 
@@ -430,6 +430,9 @@ body {
   display: flex;
   margin: 20px 0;
 }
+.logo-dark {
+  fill: var(--color-text-dark);
+}
 
 .header__navigation {
   display: flex;
@@ -439,6 +442,8 @@ body {
 }
 @media (max-width: 768px) {
   .header__navigation {
+    margin-right: 0;
+    margin-left: 0;
     transform: translateX(100%);
     flex-direction: column;
     width: 100%;
@@ -464,7 +469,7 @@ body {
   justify-content: center;
   align-items: center;
   list-style: none;
-  gap: 40px;
+  gap: clamp(20px, 2.5vw, 40px);
   padding: 0;
 }
 @media (max-width: 768px) {
@@ -481,6 +486,17 @@ body {
     margin-bottom: 100px;
     margin-top: 60px;
     gap: 60px;
+  }
+}
+
+.header__spacer {
+  flex-grow: 1;
+  max-width: 40px;
+  min-width: 20px;
+}
+@media (max-width: 768px) {
+  .header__spacer {
+    display: none;
   }
 }
 
@@ -502,8 +518,8 @@ body {
   height: 44px;
   width: 88px;
   display: flex;
-  margin-right: 24px;
-  margin-left: 45px;
+  margin-right: clamp(15px, 2vw, 25px);
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -601,6 +617,9 @@ body {
     height: 40px;
   }
 }
+.menu__logo__icon path {
+  stroke: var(--color-text-dark);
+}
 
 .enjoy__block {
   display: flex;
@@ -692,7 +711,7 @@ body {
     padding-left: 68px;
   }
   .enjoy__button:hover .enjoy__button__cup {
-    padding-left: 10px;
+    margin-left: 10px;
     opacity: 1;
   }
 }
@@ -709,6 +728,11 @@ body {
 .enjoy__button__cup {
   opacity: 0;
   display: flex;
+  min-width: 20px;
+  min-height: 20px;
+}
+.enjoy__button__cup path {
+  stroke: var(--color-text-dark);
 }
 
 .favourites__text {
