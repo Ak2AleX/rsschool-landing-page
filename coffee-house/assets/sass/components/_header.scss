@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .logo {
@@ -75,7 +76,7 @@
 
 .header__spacer {
     flex-grow: 1; 
-    max-width: 40px; 
+    max-width: 155px; 
     min-width: 20px;
     @include media-burger {
         display: none;
@@ -98,6 +99,11 @@
 }
 
 .theme__switch {
+    position: absolute;
+    right: 110px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
     height: 44px;
     width: 88px;
     display: flex;
@@ -124,6 +130,15 @@
             }
         }
     }
+    @include media-burger {
+        height: 52px;
+        width: 104px;
+        gap: 12px;
+    }
+    @include media-mobile {
+        right: 70px;
+    }
+
     [data-theme="dark"] & {
         border-color: $color-border-dark;
         .theme__icon_dark {
