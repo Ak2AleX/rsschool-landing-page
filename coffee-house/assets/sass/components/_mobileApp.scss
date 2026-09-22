@@ -1,0 +1,103 @@
+.mobile__app__content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    @include media-tablet {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
+
+.mobile__text__box {
+    margin-top: 44px;
+    max-width: 630px;
+    @include media-tablet {
+        max-width: 688px;
+        margin-top: 0;
+    }
+}
+
+.mobile__h2 {
+    max-width: 570px;
+}
+
+.mobile__text {
+    margin: 40px 0;
+    color: $color-text-dark;
+    @include font ($size: 1.6rem, $height: 2.4rem, $weight: 400);
+}
+
+.mobile__app__buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    @include media-tablet {
+        flex-wrap: nowrap;
+    }
+    @include media-mobile {
+        row-gap: 0;
+        flex-direction: column;
+    }
+}
+
+.mobile__button {
+    display: flex;
+    width: 200px;
+    height: 64px;
+    align-items: center;
+    border-radius: 100px;
+    background-color: $color-background-body;
+    text-align: left;
+    margin-right: 20px;
+    border: 1px solid $color-border-dark;
+    @extend %transition;
+    cursor: pointer;
+    & svg path {
+        fill: $color-text-dark;
+    }
+    @media (hover: hover) {
+        &:hover {
+            background-color: $color-border-dark;
+            .mobile__button__text {
+                color: $color-text-light;
+            }
+            & svg path {
+                fill: $color-text-light;
+            }
+        }
+    }
+    & svg > path {
+        @extend %transition;
+    }
+    @include media-mobile {
+        margin-bottom: 20px;
+    }
+}
+
+.mobile__button__ico {
+    margin-left: 20px;
+    margin-right: 8px;
+}
+
+.mobile__button__text {
+    color: $color-text-dark;
+    @include font ($size: 1rem, $height: 1.4rem, $weight: 600);
+    &_big {
+        display: flex;
+        @include font ($size: 1.6rem, $height: 2.4rem, $weight: 600);
+    }
+}
+
+.mobile__screens {
+    margin: 0;
+    max-width: 630px;
+    margin-bottom: 100px;
+    @include media-tablet {
+        margin: 100px auto;
+    }
+    @include media-mobile {
+        max-width: 348px;
+        margin-top: 20px;
+    }
+}

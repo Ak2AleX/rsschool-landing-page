@@ -1,0 +1,138 @@
+.favourites__text {
+    text-align: center;
+    @include media-mobile {
+        @include font ($size: 3.2rem, $height: 4rem);
+    }
+}
+
+.favourites__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include media-mobile {
+        justify-content: center;
+    }
+}
+
+.arrow__border {
+    margin-top: -40px;
+    cursor: pointer;
+    color: $color-border-dark;
+    display: flex;
+    background-color: $color-background-body;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    border: 1px solid;
+    @extend %transition;
+    @media (hover: hover) {
+        &:hover {
+            background-color: $color-border-dark;
+            & svg path {
+                stroke: $color-text-light;
+            }
+        }
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.arrows {
+    & > path {
+        stroke: $color-text-dark;
+        @extend %transition;
+    }
+}
+
+.favourites__slider__wrapper {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width: 480px;
+    height: 680px;
+    @include media-mobile {
+        width: 348px;
+        height: 576px;
+    }
+}
+
+.coffee__slider {
+    cursor: default;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &_2 {
+        display: flex;
+    }
+    &_3 {
+        display: flex;
+    }
+}
+
+.favourites__slider__track {
+    justify-content: center;
+    transition: all ease-in-out .5s;
+    display: flex;
+    flex-direction: row;
+}
+
+.slider__position1 {
+    transform: translateX(0);
+}
+
+.slider__position2 {
+    transform: translateX(-33.3%);
+}
+
+.slider__position3 {
+    transform: translateX(-66.6%);
+}
+
+.coffee__slider__img {
+    display: flex;
+    width: 480px;
+    height: 480px;
+    @include media-mobile {
+        width: 348px;
+        height: 348px;
+    }
+}
+
+.coffee__slider__name {
+    margin: 20px 0 0 0;
+    color: $color-text-dark;
+    @include font ($size: 2.4rem, $height: 3rem, $weight: 600);
+}
+
+.coffee__slider__description {
+    margin: 16px 0;
+    color: $color-text-dark;
+    @include font ($size: 1.6rem, $height: 2.4rem, $weight: 400);
+    max-width: 480px;
+}
+
+.coffee__slider__price {
+    margin: 0 0 40px 0;
+    color: $color-text-dark;
+    @include font ($size: 2.4rem, $height: 3rem, $weight: 600);
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+}
+
+.control {
+    background-color: $color-border-light;
+    border-radius: 100px;
+    margin: 0 6px;
+    width: 40px;
+    height: 4px;
+    &_colored {
+        background-color: $color-border-dark;
+    }
+}

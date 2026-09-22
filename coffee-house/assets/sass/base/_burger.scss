@@ -1,0 +1,59 @@
+.burger {
+    position: relative;
+    cursor: pointer;
+    display: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 100px;
+    background-color: $color-background-body;
+    border: 1px solid $color-border-dark;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+    @extend %transition;
+    @media (hover: hover) {
+        &:hover {
+            background-color: $color-border-dark;
+            & svg path {
+                stroke: $color-border-light;
+            }
+        }
+    }
+    @include media-burger {
+        display: flex;
+        opacity: 1;
+    }
+}
+
+.burger__exit {
+    position: absolute;
+    cursor: pointer;
+    display: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 100px;
+    background-color: $color-background-body;
+    border: 1px solid $color-border-dark;
+    justify-content: center;
+    align-items: center;
+    @extend %transition;
+    @media (hover: hover) {
+        &:hover {
+            background-color: $color-border-dark;
+            & svg path {
+                stroke: $color-border-light;
+            }
+        }
+    }
+    @include media-burger {
+        display: flex;
+        opacity: 0;
+    }
+}
+
+.burger__exit.active {
+    @include media-burger {
+        opacity: 1;
+    }
+}
