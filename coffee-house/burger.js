@@ -43,15 +43,13 @@ const toggleMenu = () => {
     body.classList.toggle ('active');
 }
 
-    const closeMenu = () => {
-        // Принудительно отключаем анимацию при резком закрытии (например, при ресайзе)
-        menu.classList.remove('menu-animated');
-        
-        menuButton.classList.remove('active');
-        menu.classList.remove('active');
-        if (menuButtonExit) menuButtonExit.classList.remove('active');
-        body.classList.remove('active');
-    };
+const closeMenu = () => {
+    menu.classList.remove('menu-animated');
+    menuButton.classList.remove('active');
+    menu.classList.remove('active');
+    if (menuButtonExit) menuButtonExit.classList.remove('active');
+    body.classList.remove('active');
+};
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && menu.classList.contains('active')) {

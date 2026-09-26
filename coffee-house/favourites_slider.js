@@ -4,10 +4,10 @@
 //     watchclick();
 // }
 
-const watchclick = () => {
-    document.querySelector('body').addEventListener("click", (e) => {
-    console.log(e.target);
-})}
+// const watchclick = () => {
+//     document.querySelector('body').addEventListener("click", (e) => {
+//     console.log(e.target);
+// })}
 
 let autoPlayTimer = null;
 

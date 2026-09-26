@@ -15,6 +15,7 @@
 }
 
 .menu__tabs {
+    @extend %transition;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -146,7 +147,7 @@
 }
 
 .menu-item_desktop {
-    @include media-tablet {
+    @include media-burger {
         display: none;
     }
 }
@@ -170,10 +171,7 @@
             }
         }
     }
-    @include media-tablet {
-        display: flex;
-    }
-    @include media-mobile {
+    @include media-burger {
         display: flex;
     }
 }
