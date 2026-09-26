@@ -1,8 +1,8 @@
-let menuButton = document.querySelector('.burger');
-let menu = document.querySelector ('.header__navigation');
-let menuButtonExit = document.querySelector ('.burger__exit');
-let menuLinks = document.querySelectorAll ('.navigation__link');
-let body = document.querySelector ('body');
+const menuButton = document.querySelector('.burger');
+const menu = document.querySelector ('.header__navigation');
+const menuButtonExit = document.querySelector ('.burger__exit');
+const menuLinks = document.querySelectorAll ('.navigation__link');
+const body = document.querySelector ('body');
 
 {menuButton.addEventListener("click", function(e) {
     e.stopPropagation();
@@ -24,11 +24,11 @@ menuLinks.forEach((menuLink) => {
 });
 
 document.addEventListener('click', e => {
-    let target = e.target;
-    let its_menu = target == menu || menu.contains(target);
-    let its_hamburger = target == menuButton;
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);
+    const its_hamburger = target == menuButton;
     const isMenuExit = menuButtonExit && (target === menuButtonExit || menuButtonExit.contains(target));
-    let menu_is_active = menu.classList.contains('active');
+    const menu_is_active = menu.classList.contains('active');
     
     if (!its_menu && !its_hamburger && !isMenuExit && menu_is_active) {
         toggleMenu();

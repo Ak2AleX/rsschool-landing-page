@@ -1,5 +1,6 @@
 .footer {
     padding-bottom: 40px;
+    @extend %transition;
 }
 
 .footer__container {
