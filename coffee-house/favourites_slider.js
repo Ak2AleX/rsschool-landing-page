@@ -1,14 +1,15 @@
-window.onload = function() {
-    autoslide();
-    arrowRightClick();
-    arrowLeftClick();
-    watchclick();
-}
+// window.onload = function() {
+//     arrowRightClick();
+//     arrowLeftClick();
+//     watchclick();
+// }
 
 const watchclick = () => {
     document.querySelector('body').addEventListener("click", (e) => {
     console.log(e.target);
 })}
+
+let autoPlayTimer = null;
 
 const control1 = document.querySelector('.control_1');
 const control2 = document.querySelector('.control_2');
@@ -32,6 +33,7 @@ const removePosition = () => {
 }
 
 function arrowLeftClick () {
+    resetAutoSlide();
     if (control3.classList.contains('control_colored')) {
         removeColored();
         control2.classList.add('control_colored');
@@ -51,7 +53,7 @@ function arrowLeftClick () {
 }
 
 function arrowRightClick () {
-    clearTimeout (timer);
+    resetAutoSlide();
     if (control1.classList.contains('control_colored')) {
         removeColored();
         control2.classList.add('control_colored');
@@ -70,14 +72,18 @@ function arrowRightClick () {
     }
 }
 
-function autoslide () {
-    timer = setTimeout(arrowRightClick, 7000);
-    loop();
+function startAutoSlide() {
+    autoPlayTimer = setTimeout(() => {
+        arrowRightClick();
+    }, 7000);
 }
 
-function loop () {
-    setTimeout(autoslide, 7000);
+function resetAutoSlide() {
+    clearTimeout(autoPlayTimer);
+    startAutoSlide();
 }
 
 arrowRight.addEventListener("click", arrowRightClick);
 arrowLeft.addEventListener("click", arrowLeftClick);
+
+startAutoSlide();
