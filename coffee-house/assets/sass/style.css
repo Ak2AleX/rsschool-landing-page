@@ -259,7 +259,7 @@ input[type=checkbox], input[type=radio] {
   --color-border-dark: #403F3D;
 }
 
-.refresh, .menu__image, .tab__icon, .tab, .footer__link, .footer__ico__borber svg > path, .footer__ico__borber, .footer, .mobile__button svg > path, .mobile__button, .mobile__app__content, .about__image, .about__images, .arrows > path, .arrow__border, .favourites__block, .favourites__text, .enjoy__button__cup, .enjoy__button, .enjoy__block, .menu__logo, .theme__icon, .theme__switch, .navigation__link, .navigation, .header__navigation, .logo path, .header__wrapper, .burger__exit, .burger, :hover {
+.refresh, .menu__image, .tab__icon, .tab, .footer__link, .footer__ico__borber svg > path, .footer__ico__borber, .footer, .mobile__button svg > path, .mobile__button, .mobile__app__content, .about__image, .about__images, .arrows > path, .arrow__border, .favourites__block, .favourites__text, .enjoy__button__cup, .enjoy__button, .enjoy__block, .menu__logo, .theme__icon, .theme__switch, .navigation__link, .navigation, .logo path, .header__wrapper, .burger__exit, .burger, :hover {
   transition: all 0.3s ease-out;
 }
 
@@ -452,7 +452,7 @@ body {
     background-color: var(--color-background-body);
     z-index: 3;
     position: fixed;
-    top: 100px;
+    top: 90px;
     right: 0;
     padding-bottom: 40px;
     overflow-y: auto;
@@ -463,6 +463,10 @@ body {
   .header__navigation.active {
     transform: translateX(0);
   }
+}
+
+.header__navigation.menu-animated {
+  transition: transform 0.3s ease-out;
 }
 
 .navigation {
