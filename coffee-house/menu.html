@@ -89,6 +89,91 @@
             </div>
         </header>
         <main>
+            <dialog id="coffee-modal" class="modal" closedby="any">
+                <div class="modal-content">
+                    <div class="modal-preview">
+                        <img src="/rsschool-landing-page/coffee-house/assets/img/menu/coffee_1.jpg" alt="Irish coffee">
+                    </div>
+                    <div class="modal-details">
+                        <p class="modal-title">Irish coffee</p>
+                        <p class="modal-description">Fragrant black coffee with Jameson Irish whiskey and whipped milk</p>
+                        <form method="dialog" id="coffee-form">
+                            <fieldset class="options-group">
+                                <legend>Size</legend>
+                                <div class="buttons-row">
+                                    <label class="custom-radio">
+                                        <input type="radio" name="size" value="s" checked>
+                                        <span class="tab-content">
+                                            <span class="tab-circle">S</span>
+                                            <span class="tab-text">200 ml</span>
+                                        </span>
+                                    </label>
+                                    <label class="custom-radio">
+                                        <input type="radio" name="size" value="m">
+                                        <span class="tab-content">
+                                            <span class="tab-circle">M</span>
+                                            <span class="tab-text">300 ml</span>
+                                        </span>
+                                    </label>
+                                    <label class="custom-radio">
+                                        <input type="radio" name="size" value="l">
+                                        <span class="tab-content">
+                                            <span class="tab-circle">L</span>
+                                            <span class="tab-text">400 ml</span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="options-group">
+                                <legend>Additives</legend>
+                                <div class="buttons-row">
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="additives" value="sugar">
+                                        <span class="tab-content">
+                                            <span class="tab-circle">1</span>
+                                            <span class="tab-text">Sugar</span>
+                                        </span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="additives" value="cinnamon">
+                                        <span class="tab-content">
+                                            <span class="tab-circle">2</span>
+                                            <span class="tab-text">Cinnamon</span>
+                                        </span>
+                                    </label>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="additives" value="syrup">
+                                        <span class="tab-content">
+                                            <span class="tab-circle">3</span>
+                                            <span class="tab-text">Syrup</span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <div class="total-row">
+                                <span>Total:</span>
+                                <p class="price">$7.00</p>
+                            </div>
+                            <div class="info">
+                                <svg class="info-img" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_147811_7961)">
+                                        <path d="M8 7.66663V11" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M8 5.00667L8.00667 4.99926" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7.99967 14.6667C11.6816 14.6667 14.6663 11.6819 14.6663 8.00004C14.6663 4.31814 11.6816 1.33337 7.99967 1.33337C4.31778 1.33337 1.33301 4.31814 1.33301 8.00004C1.33301 11.6819 4.31778 14.6667 7.99967 14.6667Z" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_147811_7961">
+                                            <rect width="16" height="16" fill="white"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <p>The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.</p>
+                            </div>
+                            <button class="btn-close">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
             <section class="menu wrapper">
                 <h2 class="menu__h2">Behind each of our cups hides an <span class="h2_colored">amazing surprise</span></h2>
                 <div class="menu__tabs">

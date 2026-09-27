@@ -4,11 +4,11 @@ const menuButtonExit = document.querySelector ('.burger__exit');
 const menuLinks = document.querySelectorAll ('.navigation__link');
 const body = document.querySelector ('body');
 
-{menuButton.addEventListener("click", function(e) {
+menuButton.addEventListener("click", function(e) {
     e.stopPropagation();
     toggleMenu();
 });
-}
+
 
 if (menuButton) {
     menuButtonExit.addEventListener("click", function(e) {

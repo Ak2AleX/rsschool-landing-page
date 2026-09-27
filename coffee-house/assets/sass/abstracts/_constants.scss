@@ -7,6 +7,8 @@
     --color-background-backdrop: #403F3DCC;
     --color-border-light: #C1B6AD;
     --color-border-dark: #665F55;
+    --color-modal: #E1D4C9;
+    --color-modal-control: #665F55;
 }
 
 [data-theme="dark"] {
@@ -18,6 +20,8 @@
     --color-background-backdrop: #292826CC;
     --color-border-light: #665F55;
     --color-border-dark: #403F3D;
+    --color-modal: #403F3D;
+    --color-modal-control: #292826;
 }
 
 $color-text-dark: var(--color-text-dark);
@@ -28,6 +32,8 @@ $color-background-container: var(--color-background-container);
 $color-background-backdrop: var(--color-background-backdrop);
 $color-border-light: var(--color-border-light);
 $color-border-dark: var(--color-border-dark);
+$color-modal: var(--color-modal);
+$color-modal-control: var(--color-modal-control);
 
 
 $desktop-width: 1440px;

@@ -5,6 +5,7 @@ const menuDessert = document.querySelector('.menu__container_dessert');
 const menuItem = document.querySelectorAll('.menu-item');
 const refreshButton = document.querySelector('.refresh');
 const desktopItem = document.querySelectorAll('.menu-item_desktop');
+const modal = document.querySelector('.modal');
 
 function switchTab(clickedTab) {
     tabButtons.forEach(tab => tab.classList.remove('tab_active'));
@@ -54,13 +55,9 @@ if (menuCoffee) {
     menuCoffee.classList.add('is-visible');
 }
 
-const activeModal = () => { 
-    body.classList.toggle('scroll__lock'); 
-};
-
 menuItem.forEach((item) => {
     item.addEventListener("click", () => {
-        activeModal();
+        modal.showModal();
     });
 });
 
@@ -69,6 +66,34 @@ refreshButton.addEventListener("click", () => {
         item.classList.remove('menu-item_desktop');
         refreshButton.classList.add('hidden');
     });
+});
+
+function closeModalWithAnimation() {
+    modal.classList.add('is-closing');
+    
+    modal.addEventListener('animationend', function handleAnimationEnd(event) {
+        if (event.animationName === 'modal-fade-out') {
+            modal.close();
+            modal.classList.remove('is-closing');
+            modal.removeEventListener('animationend', handleAnimationEnd);
+        }
+    });
+}
+
+modal.addEventListener('click', (event) => {
+    const isClickInsideContent = event.target.closest('.modal-content');
+    
+    const isCloseButtonClick = event.target.classList.contains('btn-close') || event.target.closest('.btn-close');
+
+    if (!isClickInsideContent || isCloseButtonClick) {
+        event.preventDefault();
+        closeModalWithAnimation();
+    }
+});
+
+modal.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    closeModalWithAnimation();
 });
 
 // popupButtonExit.addEventListener("click", function(e) {
