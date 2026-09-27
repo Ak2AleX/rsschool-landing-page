@@ -79,16 +79,30 @@
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-bottom: 100px;
     gap: 40px;
-    &_2 {
+    &_coffee,
+    &_tea,
+    &_dessert {
         display: none;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 40px;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        @extend %transition;
     }
-    &_3 {
-        display: none;
+    &_active {
+        display: flex; 
+        margin-bottom: 100px;
+        @include media-burger {
+            margin-bottom: 40px;
+        }
     }
-    @include media-tablet {
-        margin-bottom: 40px;
+    &.is-visible {
+        opacity: 1;
+        visibility: visible;
     }
 }
 
@@ -173,5 +187,9 @@
     }
     @include media-burger {
         display: flex;
+    }
+    &.hidden {
+        visibility: hidden;
+        margin-bottom: 0px;
     }
 }

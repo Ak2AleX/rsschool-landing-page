@@ -40,7 +40,7 @@ const toggleMenu = () => {
     menuButton.classList.toggle('active');
     menu.classList.toggle ('active');
     if (menuButtonExit) menuButtonExit.classList.toggle('active');
-    body.classList.toggle ('active');
+    body.classList.toggle ('scroll__lock');
 }
 
 const closeMenu = () => {
@@ -48,7 +48,7 @@ const closeMenu = () => {
     menuButton.classList.remove('active');
     menu.classList.remove('active');
     if (menuButtonExit) menuButtonExit.classList.remove('active');
-    body.classList.remove('active');
+    body.classList.remove('scroll__lock');
 };
 
 document.addEventListener('keydown', (e) => {
