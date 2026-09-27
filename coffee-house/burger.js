@@ -10,10 +10,11 @@ const body = document.querySelector ('body');
 });
 }
 
-if (menuButton) {menuButtonExit.addEventListener("click", function(e) {
-    e.stopPropagation();
-    toggleMenu();
-});
+if (menuButton) {
+    menuButtonExit.addEventListener("click", function(e) {
+        e.stopPropagation();
+        toggleMenu();
+    });
 }
 
 menuLinks.forEach((menuLink) => {
@@ -59,7 +60,7 @@ document.addEventListener('keydown', (e) => {
 
 const desktopMedia = window.matchMedia('(min-width: 769px)');
     function handleScreenChange(e) {
-        if (e.matches && menu.classList.contains('active')) {
+        if (e.matches) {
             closeMenu();
         }
     }
