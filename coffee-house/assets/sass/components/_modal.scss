@@ -6,6 +6,7 @@
 
 .modal-preview {
     display: flex;
+    min-width: 310px;
     max-width: 310px;
     max-height: 310px;
     border-radius: 40px;
@@ -21,6 +22,9 @@
     & > img {
         @extend %transition;
         scale: 110%;
+    }
+    @include media-mobile {
+        display: none;
     }
 }
 
@@ -193,7 +197,11 @@ dialog {
     background-color: $color-background-body;
     padding: 0;
     max-width: 800px;
-    width: 100%;
+    width: calc(100% - 40px);
+    @extend %transition;
+    @include media-mobile {
+        width: calc(100% - 20px);
+    }
 }
 
 dialog::backdrop {
