@@ -1,4 +1,4 @@
-[
+export const productsData = [
   {
     "name": "Irish coffee",
     "description": "Fragrant black coffee with Jameson Irish whiskey and whipped milk",
