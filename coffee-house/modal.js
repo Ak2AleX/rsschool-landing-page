@@ -1,8 +1,5 @@
 import { productsData } from './products.js';
 
-// ========================================================
-// 2. ИНИЦИАЛИЗАЦИЯ И ПОИСК БАЗОВЫХ ЭЛЕМЕНТОВ ИНТЕРФЕЙСА
-// ========================================================
 const tabButtons = document.querySelectorAll('.tab');
 const menuCoffee = document.querySelector('.menu__container_coffee');
 const menuTea = document.querySelector('.menu__container_tea');
@@ -12,7 +9,6 @@ const desktopItem = document.querySelectorAll('.menu-item_desktop');
 const modal = document.querySelector('.modal');
 const coffeeForm = document.querySelector('#coffee-form');
 
-// Глобальные переменные для калькулятора цен
 let currentProduct = null;
 let basePrice = 0;
 
@@ -21,9 +17,6 @@ const modalDescription = modal.querySelector('.modal-description');
 const modalImg = modal.querySelector('.modal-preview img');
 const modalPrice = modal.querySelector('.price');
 
-// ========================================================
-// 3. ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ТАБОВ И КАТЕГОРИЙ МЕНЮ
-// ========================================================
 function switchTab(clickedTab) {
     tabButtons.forEach(tab => tab.classList.remove('tab_active'));
     clickedTab.classList.add('tab_active');
@@ -80,43 +73,34 @@ if (refreshButton) {
     });
 }
 
-// ========================================================
-// 4. ДИНАМИЧЕСКОЕ ЗАПОЛНЕНИЕ КОНТЕНТА МОДАЛКИ ПРИ КЛИКЕ
-// ========================================================
 function initModalEvents() {
     const menuItems = document.querySelectorAll('.menu-item');
 
     menuItems.forEach((item) => {
         item.addEventListener("click", () => {
-            // Вытаскиваем имя продукта из текстового содержимого карточки каталога
             const productName = item.querySelector('.menu__name').textContent.trim();
-            
-            // Ищем совпадение в импортированном массиве объектов
+
             currentProduct = productsData.find(p => p.name === productName);
             
             if (!currentProduct) return;
 
             basePrice = parseFloat(currentProduct.price);
 
-            // Наполняем текстовые узлы описания и названия
             if (modalTitle) modalTitle.textContent = currentProduct.name;
             if (modalDescription) modalDescription.textContent = currentProduct.description;
-            
-            // Клонируем изображение из карточки каталога в модальное окно
+
             const imgElement = item.querySelector('.menu__image');
             if (modalImg && imgElement) {
                 modalImg.src = imgElement.src;
                 modalImg.alt = currentProduct.name;
             }
 
-            // Динамически меняем тексты объемов на радио-кнопках (ml или g)
             const sizeInputs = modal.querySelectorAll('input[name="size"]');
             const sizeKeys = ['s', 'm', 'l'];
             sizeInputs.forEach((input, index) => {
                 const key = sizeKeys[index];
                 const label = input.closest('.custom-radio');
                 if (label && currentProduct.sizes[key]) {
-                    // Точечно находим .tab-text и меняем только его
                     const tabTextElement = label.querySelector('.tab-text');
                     if (tabTextElement) {
                         tabTextElement.textContent = currentProduct.sizes[key].size;
@@ -124,7 +108,6 @@ function initModalEvents() {
                 }
             });
 
-            // Динамически меняем подписи добавок на чекбоксах (Sugar, Cinnamon, Jam и т.д.)
             const additiveInputs = modal.querySelectorAll('input[name="additives"]');
             additiveInputs.forEach((input, index) => {
                 const label = input.closest('.custom-checkbox');
@@ -137,25 +120,19 @@ function initModalEvents() {
                 }
             });
 
-            // Возвращаем форму в дефолтное положение (сброс старых галочек)
             if (coffeeForm) coffeeForm.reset();
 
-            // Рассчитываем стартовую цену и открываем окно
             updateTotalPrice();
             modal.showModal();
         });
     });
 }
 
-// ========================================================
-// 5. ИНТЕГРИРОВАННЫЙ СМАРТ-КАЛЬКУЛЯТОР СТОИМОСТИ (Total)
-// ========================================================
 function updateTotalPrice() {
     if (!currentProduct) return;
 
     let total = basePrice;
 
-    // 1. Прибавляем наценку за выбранный размер (Radio)
     const selectedSizeInput = modal.querySelector('input[name="size"]:checked');
     if (selectedSizeInput) {
         const sizeKey = selectedSizeInput.value;
@@ -164,7 +141,6 @@ function updateTotalPrice() {
         }
     }
 
-    // 2. Подсчет чекбоксов по их порядковому индексу в форме
     const checkedAdditiveInputs = modal.querySelectorAll('input[name="additives"]:checked');
     checkedAdditiveInputs.forEach((checkbox) => {
         const allAdditiveInputs = Array.from(modal.querySelectorAll('input[name="additives"]'));
@@ -175,20 +151,15 @@ function updateTotalPrice() {
         }
     });
 
-    // Выводим результат в тег цены
     if (modalPrice) {
         modalPrice.textContent = `$${total.toFixed(2)}`;
     }
 }
 
-// Перехватываем событие 'change' на форме для мгновенного пересчета цены
 if (coffeeForm) {
     coffeeForm.addEventListener('change', updateTotalPrice);
 }
 
-// ========================================================
-// 6. КОРРЕСПОНДЕНТСКОЕ ПЛАВНОЕ ЗАКРЫТИЕ ОКНА (АНИМАЦИИ)
-// ========================================================
 function closeModalWithAnimation() {
     modal.classList.add('is-closing');
     
@@ -216,5 +187,4 @@ modal.addEventListener('cancel', (event) => {
     closeModalWithAnimation();
 });
 
-// Запускаем инициализацию событий клика сразу при загрузке скрипта
 initModalEvents();
