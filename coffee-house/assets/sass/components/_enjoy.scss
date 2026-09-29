@@ -1,6 +1,7 @@
 .enjoy__block {
     display: flex;
     position: relative;
+    @extend %transition;
 }
 
 .coffee__container {
@@ -71,12 +72,16 @@
                 margin-left: 10px;
                 opacity: 1;
             }
+            @include media-mobile {
+                padding-left: 65px;
+            }
         }
     }
     @include media-mobile {
         padding-left: 65px;
         .enjoy__button__cup {
-            padding-left: 10px;
+            // padding-left: 20px;
+            margin-left: 10px;
             opacity: 1;
         }
     }

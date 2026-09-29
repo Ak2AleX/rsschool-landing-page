@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
+    @extend %transition;
     @include media-tablet {
         flex-direction: column;
         flex-wrap: wrap;

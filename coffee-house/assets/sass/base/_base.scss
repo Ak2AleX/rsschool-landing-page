@@ -37,16 +37,22 @@ body {
     @extend %font-primary;
     @include font ($size: 1.6rem, $height: 2.4rem, $weight: 600);
     background-color: $color-background-body;
-    @include media-burger {
-        &.active {
-            overflow: hidden;
-        }
+    &.scroll__lock {
+        overflow: hidden;
     }
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
 }
 
 .body__wrapper {
     position: relative;
     overflow: hidden;
+}
+
+dialog::backdrop {
+    background-color: $color-background-backdrop;
 }
 
 //Scrollbar

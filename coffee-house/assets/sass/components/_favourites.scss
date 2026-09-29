@@ -1,11 +1,13 @@
 .favourites__text {
     text-align: center;
+    @extend %transition;
     @include media-mobile {
         @include font ($size: 3.2rem, $height: 4rem);
     }
 }
 
 .favourites__block {
+    @extend %transition;
     display: flex;
     justify-content: space-between;
     align-items: center;

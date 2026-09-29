@@ -1,5 +1,6 @@
 .footer {
     padding-bottom: 40px;
+    @extend %transition;
 }
 
 .footer__container {
@@ -37,7 +38,6 @@
 .footer__ico__borber {
     margin-right: 12px;
     cursor: pointer;
-    // color: $color-border-dark;
     display: flex;
     align-items: center;
     justify-content: center;

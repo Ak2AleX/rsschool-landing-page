@@ -1,0 +1,252 @@
+.modal-content {
+    display: flex;
+    background-color: $color-modal;
+    padding: 16px;
+}
+
+.modal-preview {
+    display: flex;
+    min-width: 310px;
+    max-width: 310px;
+    max-height: 310px;
+    border-radius: 40px;
+    overflow: hidden;
+    margin-right: 20px;
+    @media (hover: hover) {
+        &:hover {
+            > img {
+                scale: 100%;
+            }
+        }
+    }
+    & > img {
+        @extend %transition;
+        scale: 110%;
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.modal-title {
+    color: $color-text-dark;
+    @include font ($size: 2.4rem, $height: 2.25rem, $weight: 600);
+    margin: 0;
+    margin-bottom: 12px;
+}
+
+.modal-description {
+    color: $color-text-dark;
+    @include font ($size: 1.6rem, $height: 2.5rem, $weight: 400);
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.options-group {
+    border: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    color: $color-text-dark;
+    @include font ($size: 1.6rem, $height: 2.5rem, $weight: 400);
+}
+
+.custom-tab input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.buttons-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+legend {
+    margin: 0 0 8px 0;
+}
+
+.custom-radio,
+.custom-checkbox {
+    cursor: pointer;
+    input {
+        display: none;
+        &:checked {
+        & + .tab-content {
+            background-color: $color-modal-control;
+            color: $color-text-light;
+            .tab-circle {
+            background-color: $color-modal;
+            color: $color-text-dark;
+            }
+        }
+        }
+    }
+    @media (hover: hover) {
+        &:hover {
+        .tab-content {
+            background-color: $color-modal-control;
+            color: $color-text-light;
+        }
+        .tab-circle {
+            background-color: $color-modal;
+        }
+        }
+    }
+}
+
+.custom-radio input:checked + .tab-content {
+    cursor: default;
+}
+
+.custom-checkbox input:checked + .tab-content {
+    cursor: pointer;
+}
+
+.tab-content {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px 7px 8px;
+    border: 1px solid $color-border-light;
+    border-radius: 100px;
+    color: $color-text-dark;
+    font-size: 1.6rem;
+    font-weight: 600;
+    user-select: none;
+    @extend %transition;
+}
+
+.tab-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    background-color: $color-border-light;
+    color: $color-text-dark;
+    @extend %transition;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $color-text-dark;
+    margin: 0 0 20px 0;
+    @include font ($size: 2.4rem, $height: 2.25rem, $weight: 600);
+    & > span {
+        margin: 0;
+    }
+}
+
+.price {
+    margin: 0;
+    align-self: center;
+}
+
+.info {
+    border-top: $color-border-light solid 1px;
+    padding: 12px 0;
+    display: flex;
+    color: $color-text-dark;
+    @include font ($size: 1rem, $height: 1.4rem, $weight: 600);
+    & > p {
+        margin: 0;
+    }
+}
+
+.info-img {
+    display: flex;
+    min-width: 16px;
+    min-height: 16px;
+    margin-right: 12px;
+    path {
+        stroke: $color-text-dark;
+    }
+}
+
+.btn-close {
+    margin-top: 20px;
+    @extend %transition;
+    display: flex;
+    border-radius: 100px;
+    border: 1px solid #665F55;
+    background-color: $color-modal;
+    width: 100%;
+    height: 44px;
+    justify-content: center;
+    align-items: center;
+    color: $color-text-dark;
+    @include font ($size: 1.6rem, $height: 1.5rem, $weight: 600);
+    @media (hover: hover) {
+        &:hover {
+            background-color: $color-modal-control;
+            color: $color-text-light;
+        }
+    }
+}
+
+dialog {
+    border: none;
+    border-radius: 40px;
+    background-color: $color-background-body;
+    padding: 0;
+    max-width: 800px;
+    width: calc(100% - 40px);
+    @extend %transition;
+    @include media-mobile {
+        width: calc(100% - 20px);
+    }
+}
+
+dialog::backdrop {
+    background-color: $color-background-backdrop;
+}
+
+dialog[open] {
+    animation: modal-fade-in 0.3s ease-out forwards;
+}
+
+dialog[open]::backdrop {
+    animation: backdrop-fade-in 0.3s ease-out forwards;
+}
+
+dialog.is-closing {
+    animation: modal-fade-out 0.3s ease-in forwards;
+}
+
+dialog.is-closing::backdrop {
+    animation: backdrop-fade-out 0.3s ease-in forwards;
+}
+
+@keyframes modal-fade-in {
+    from { opacity: 0;}
+    to { opacity: 1;}
+}
+
+@keyframes modal-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes backdrop-fade-in {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        background-color: $color-background-backdrop;
+    }
+}
+
+@keyframes backdrop-fade-out {
+    from {
+        background-color: $color-background-backdrop;
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
